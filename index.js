@@ -8,11 +8,14 @@ const productRoute = require('./routes/product')
 const cartRoute = require('./routes/cart')
 const orderRoute = require('./routes/order')
 const stripeRoute = require('./routes/stripe')
- const cors = require('cors')
+const cors = require('cors')
+const BASE_URL = process.env.BASE_URL;
+
+const PORT = process.env.PORT || 5000;
 
 
 
-mongoose.connect('mongodb://localhost/Ecommerce')
+mongoose.connect(`${BASE_URL}/Ecommerce`)
     .then(() => console.log('Mongodb successfully connected...'))
     .catch(err => console.log('Connection could not connectd...', err));
 
@@ -26,4 +29,4 @@ app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
  app.use("/api/checkout", stripeRoute);
 
-app.listen(5000, () => console.log('Connection Successfull'));
+app.listen(PORT, (e) => console.log(`server is up and running to port: ${PORT}`));
