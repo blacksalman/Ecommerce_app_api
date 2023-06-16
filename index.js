@@ -9,13 +9,13 @@ const cartRoute = require('./routes/cart')
 const orderRoute = require('./routes/order')
 const stripeRoute = require('./routes/stripe')
 const cors = require('cors')
-const BASE_URL = process.env.BASE_URL;
+const DATABASE = process.env.DATABASE;
 
 const PORT = process.env.PORT || 5000;
 
 
 
-mongoose.connect(`${BASE_URL}`)
+mongoose.connect(`${DATABASE}`)
     .then(() => console.log('Mongodb successfully connected...'))
     .catch(err => console.log('Connection could not connectd...', err));
 
