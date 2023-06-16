@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 
 
-mongoose.connect(`${BASE_URL}/Ecommerce`)
+mongoose.connect(`${BASE_URL}`)
     .then(() => console.log('Mongodb successfully connected...'))
     .catch(err => console.log('Connection could not connectd...', err));
 
