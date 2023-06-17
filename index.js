@@ -13,9 +13,12 @@ const DATABASE = process.env.DATABASE;
 
 const PORT = process.env.PORT || 5000;
 
+const connectionParams = {
+    userNewUrlParser:true,
+    userUnifiedTopology:true,
+};
 
-
-mongoose.connect(`${DATABASE}`)
+mongoose.connect(`${DATABASE} ${connectionParams}`)
     .then(() => console.log('Mongodb successfully connected...'))
     .catch(err => console.log('Connection could not connectd...', err));
 
